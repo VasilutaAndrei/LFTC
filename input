@@ -1,0 +1,12 @@
+ab, ba
+int_main() {
+    int abc1234321 = -1;
+    int a = aba + 1;
+    print ( a + b );
+    if ( a + b == '1') {
+        print (a * b);
+    }
+    list l = ['a', 'r', 30];
+    read(a);
+    print (a / b);
+}
