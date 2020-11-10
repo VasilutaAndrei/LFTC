@@ -40,6 +40,9 @@ class FiniteAutomata:
         sequence = input()
         isOK = True
         for l in sequence:
+            if l not in self.alphabet:
+                print('Invalid symbol <' + l + '>')
+                return
             isAccepted = False
             for tr in self.transitions:
                 if l == tr[0][1]:
@@ -47,12 +50,12 @@ class FiniteAutomata:
                     print(tr)
                     break
             if not isAccepted:
+                print('No transitions found for <' + l + '>!')
                 isOK = False
         if isOK:
             print('The sequence <' + sequence + '> is accepted.')
         else:
             print('The sequence <' + sequence + '> is not accepted.')
-
 
     def __str__(self):
         return 'Set of states\n' + str(self.states) + '\nAlphabet\n' + str(self.alphabet) + '\nStarting symbol\n' + str(self.startingSymbol) + '\nFinal states\n' + str(self.finalStates) + '\nTransitions\n' + str(self.transitions)
