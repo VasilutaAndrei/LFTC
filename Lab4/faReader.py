@@ -1,4 +1,4 @@
-class Scanner:
+class faReader:
     def __init__(self):
         self.FA = ''
 

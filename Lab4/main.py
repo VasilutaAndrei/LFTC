@@ -1,8 +1,8 @@
 from FA import FiniteAutomata
-from Scanner import Scanner
+from faReader import faReader
 
 FA = FiniteAutomata()
-SC = Scanner()
+SC = faReader()
 SC.setFA(FA)
 
 
@@ -28,6 +28,7 @@ def menu():
         3: lambda: print(FA.getStartingSymbol()),
         4: lambda: print(FA.getFinalStates()),
         5: lambda: print(FA.getTransition()),
+        6: lambda: FA.checkSequence()
     }
     while True:
         print('0.Exit')
@@ -36,6 +37,7 @@ def menu():
         print('3.Starting symbol')
         print('4.Final states')
         print('5.Transitions')
+        print('6.Check if a sequence is accepted')
         option = input()[0]
         switcher.get(int(option), 'Invalid option')()
 

@@ -36,5 +36,23 @@ class FiniteAutomata:
     def getTransition(self):
         return self.transitions
 
+    def checkSequence(self):
+        sequence = input()
+        isOK = True
+        for l in sequence:
+            isAccepted = False
+            for tr in self.transitions:
+                if l == tr[0][1]:
+                    isAccepted = True
+                    print(tr)
+                    break
+            if not isAccepted:
+                isOK = False
+        if isOK:
+            print('The sequence <' + sequence + '> is accepted.')
+        else:
+            print('The sequence <' + sequence + '> is not accepted.')
+
+
     def __str__(self):
         return 'Set of states\n' + str(self.states) + '\nAlphabet\n' + str(self.alphabet) + '\nStarting symbol\n' + str(self.startingSymbol) + '\nFinal states\n' + str(self.finalStates) + '\nTransitions\n' + str(self.transitions)
