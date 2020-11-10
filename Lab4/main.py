@@ -7,7 +7,7 @@ SC.setFA(FA)
 
 
 def algorithm():
-    with open('input') as f:
+    with open('FA.in') as f:
         SC.readSetOfStates(f.readline())
         SC.readAlphabet(f.readline())
         SC.readStartingSymbol(f.readline())
@@ -17,10 +17,12 @@ def algorithm():
             if not line:
                 break
             SC.readTransition(line)
+    menu()
 
 
 def menu():
     switcher = {
+        0: lambda: exit(0),
         1: lambda: print(FA.getStates()),
         2: lambda: print(FA.getAlphabet()),
         3: lambda: print(FA.getStartingSymbol()),
@@ -39,4 +41,3 @@ def menu():
 
 
 algorithm()
-menu()
