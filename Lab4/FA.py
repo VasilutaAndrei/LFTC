@@ -39,18 +39,20 @@ class FiniteAutomata:
     def checkSequence(self):
         sequence = input()
         isOK = True
+        lastTr = ''
         for l in sequence:
             if l not in self.alphabet:
                 print('Invalid symbol <' + l + '>')
                 return
             isAccepted = False
             for tr in self.transitions:
-                if l == tr[0][1]:
+                if l == tr[0][1] and (lastTr == '' or lastTr == tr[0][0]):
                     isAccepted = True
+                    lastTr = tr[1]
                     print(tr)
                     break
             if not isAccepted:
-                print('No transitions found for <' + l + '>!')
+                print('No transitions found for (' + lastTr + ', ' + l + ')')
                 isOK = False
         if isOK:
             print('The sequence <' + sequence + '> is accepted.')
